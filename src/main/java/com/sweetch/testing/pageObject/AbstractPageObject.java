@@ -15,9 +15,13 @@ public class AbstractPageObject {
         this.driver = driver;
     }
 
+    protected MobileElement findElementByXpath(String xpath) {
+        return driver.findElement(By.xpath(xpath));
+    }
+
     protected void findAndClickOnElementByXpath(String xpath) {
-        MobileElement preferenceElement = driver.findElement(By.xpath(xpath));
-        preferenceElement.click();
+        MobileElement element = findElementByXpath(xpath);
+        element.click();
     }
 
     public AbstractPageObject scrollUp() {
